@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main{
+            height: 194px;
+            width: 393px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            border-radius: 5px;
+
+        }
+        .upbtn{
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+        }
+        button{
+            padding: 8px;
+        }
+        .upbtn span{
+            border: 1px solid black;
+            width: 32px;
+            text-align: center;
+            padding-top: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="heading">
+            <h1>Counter App</h1>
+        </div>
+
+        <div class="upbtn">
+            <button id="dcr"><b>Decreament by 1</b></button>
+            <span id="spn"><b>0</b></span>
+            <button id="icr"><b>Increament by 1</b></button>
+        </div>
+
+        <div class="downbtn">
+            <button id="reset"><b>Reset Value</b></button>
+        </div>
+    </div>
+
+    <script>
+        const decreamentBtn = document.getElementById("dcr");
+        const displayValue = document.getElementById("spn");
+        const increamentBtn = document.getElementById("icr");
+        const resetBtn = document.getElementById("reset");
+
+
+        function decreaseBy1(){
+            // display.innerText is a string hence we need to convert it in a Number
+            let val = Number(displayValue.innerText);
+            if (val>0) {
+                displayValue.innerText = val-1;
+            }
+            else{
+                alert("Negative number cannot be displayed");
+            }
+        }
+
+        function increaseBy1(){
+            // display.innerText is a string hence we need to convert it in a Number
+            let val = Number(displayValue.innerText);
+            if (val>=10) {
+                alert("No updation");
+            }
+            else{
+                displayValue.innerText = val + 1;
+            }
+        }
+
+        function reset(){
+            displayValue.innerText = 0;
+        }
+
+        decreamentBtn.addEventListener("click",decreaseBy1);
+        increamentBtn.addEventListener("click",increaseBy1);
+        resetBtn.addEventListener("click",reset);
+
+
+    </script>
+</body>
+</html>
